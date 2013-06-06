@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Soda Pop</title>
+    <link rel="stylesheet" type="text/css" href="css/lungo.css">
+    <link rel="stylesheet" type="text/css" href="css/lungo.icon.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.lungo.css">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style type="text/css">
+        li img {
+            width: 100%;
+        }
+
+        .cont {
+            width: 100px;
+            height: 100px;
+            border: 1px #CCC solid;
+            background-color: #EEE;
+            padding: 5px;
+            -webkit-transition: height .1s linear, padding-top .1s linear,
+                padding-bottom .1s linear, border-width .1s linear;
+        }
+
+        .toggled {
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 0;
+            border-width: 0;
+        }
+
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="app">
+    <section id="main" data-transition="pop">
+        <!-- HEADER and link to the aside -->
+        <header data-title="Soda Pop">
+            <nav>
+                <a href="#features" data-router="aside" data-icon="menu"></a>
+            </nav>
+        </header>
+        <!-- Main screen | We'll probably put the news here -->
+        <article id="main-article" class="active scroll">
+            Splash image <br />
+            <ul>
+                <li><img class="item" src="img/1.png" /><div class="cont">hi there</li>
+                <li><img class="item" src="img/2.png" /></li>
+                <li><img class="item" src="img/3.png" /></li>
+                <li><img class="item" src="img/4.png" /></li>
+            </ul>
+        </article>
+
+        
+        <footer>
+            <nav>
+                <a href="#main" data-router="section" data-icon="menu" class="active"></a>
+                <a href="#sodapop" data-router="section" data-icon="share"></a>
+            </nav>
+        </footer>
+    </section>
+
+    <!-- Gamification part | This is where the magic happens :) -->
+
+    <section id="sodapop" data-transition="pop" data-pull="normal">
+        <!-- HEADER and link to the aside -->
+        <header data-title="Soda Pop">
+            <nav>
+                <a href="#features" data-router="aside" data-icon="menu"></a>
+            </nav>
+        </header>
+        <!-- Main screen | We'll probably put the news here -->
+        <article id="main-article" class="active list scroll indented">
+            Furniture: <br />
+            + questionlist <br>
+            + help functino <br>
+            + Link to profile page <br>
+            <ul>
+            <li>
+                <span class="question">When was scotch founded?</span><br />
+                <div class="right">.right</div>
+                <span class="answer">1983</span><br />
+                <span class="answer">1976</span><br />
+            </li>
+            <li>Element 2</li>
+        </ul>
+        </article>
+
+        
+        <footer>
+            <nav>
+                <a href="#main" data-router="section" data-icon="menu"></a>
+                <a href="#sodapop" data-router="section" data-icon="share" class="active"></a>
+            </nav>
+        </footer>
+    </section>
+
+    <aside id="features">
+        <header data-title="Options"></header>
+        <article class="active">
+            Searchform <br />
+
+        </article>
+    </aside>
+
+    <!-- Lungo - Dependencies -->
+    <SCRIPT SRC="js/quo.js"></SCRIPT>
+    <SCRIPT SRC="js/lungo.js"></SCRIPT>
+    <!-- Lungo - Sandbox App -->
+    <SCRIPT>
+        Lungo.init({
+            name: 'Soda Pop'
+        });
+
+        $$('.item').on('click', function(){
+            $$('.cont').toggleClass('toggled');
+            // alert('test');
+        });
+    </SCRIPT>
+</body>
+</html>
