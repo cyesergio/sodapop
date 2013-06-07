@@ -53,6 +53,25 @@
         #splashscreen p {
             font-family: Georgia;
         }
+
+        #splashscreen img {
+          transition: 3s;
+        }
+        .scaleup {
+          transform: scale(3.9);
+        }
+
+        header nav {
+            text-align: center;
+        }
+
+       .header_logo {
+            height:100%;
+            margin: 0 auto;
+            padding: 5px;
+            opacity: 0;
+        }
+
     </style>
 </head>
 <body class="app">
@@ -62,15 +81,17 @@
     </div>
     <section id="main" data-transition="pop">
         <!-- HEADER and link to the aside -->
-        <header data-title="Soda Pop">
+        <header data-title="">
             <nav>
                 <a href="#features" data-router="aside" data-icon="menu"></a>
+                <img class="header_logo" src="img/soda-pop-logo.png" />
             </nav>
+            
         </header>
         <!-- Main screen | We'll probably put the news here -->
         <article id="main-article" class="active scroll">
             <ul>
-                <li><img class="item" src="img/1.png" /><div class="cont">hi there</div></li>
+                <li><img class="item" src="img/1.png" /><div class="cont toggled">hi there</div></li>
                 <li><img class="item" src="img/2.png" /></li>
                 <li><img class="item" src="img/3.png" /></li>
                 <li><img class="item" src="img/4.png" /></li>
@@ -136,9 +157,13 @@
 
         Lungo.ready(function() {
             //do something
+            $$('#splashscreen img').addClass('scaleup');
             setTimeout(function(){
                 $$('#splashscreen').addClass('animated bounceOutDown');
             }, 1500);
+            setTimeout(function(){
+                $$('.header_logo').addClass('animated lightSpeedIn');
+            }, 3000);
         });
         $$('.item').on('click', function(){
             $$($$(this).siblings()[0]).toggleClass('toggled');
