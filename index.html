@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="css/lungo.css">
     <link rel="stylesheet" type="text/css" href="css/lungo.icon.css">
     <link rel="stylesheet" type="text/css" href="css/theme.lungo.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
 
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style type="text/css">
@@ -32,9 +33,33 @@
         .content {
             display: none;
         }
+
+        #splashscreen {
+            position:absolute;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+
+        #splashscreen img {
+            position: relative;
+            width: 33%;
+            top: 30%;
+        }
+        #splashscreen p {
+            font-family: Georgia;
+        }
     </style>
 </head>
 <body class="app">
+    <div id="splashscreen">
+            <img src="img/soda-pop-logo.png" />
+            <!-- <p>Y'all gon'learn today...</p> -->
+    </div>
     <section id="main" data-transition="pop">
         <!-- HEADER and link to the aside -->
         <header data-title="Soda Pop">
@@ -44,9 +69,8 @@
         </header>
         <!-- Main screen | We'll probably put the news here -->
         <article id="main-article" class="active scroll">
-            Splash image <br />
             <ul>
-                <li><img class="item" src="img/1.png" /><div class="cont">hi there</li>
+                <li><img class="item" src="img/1.png" /><div class="cont">hi there</div></li>
                 <li><img class="item" src="img/2.png" /></li>
                 <li><img class="item" src="img/3.png" /></li>
                 <li><img class="item" src="img/4.png" /></li>
@@ -73,10 +97,6 @@
         </header>
         <!-- Main screen | We'll probably put the news here -->
         <article id="main-article" class="active list scroll indented">
-            Furniture: <br />
-            + questionlist <br>
-            + help functino <br>
-            + Link to profile page <br>
             <ul>
             <li>
                 <span class="question">When was scotch founded?</span><br />
@@ -114,9 +134,14 @@
             name: 'Soda Pop'
         });
 
+        Lungo.ready(function() {
+            //do something
+            setTimeout(function(){
+                $$('#splashscreen').addClass('animated bounceOutDown');
+            }, 1500);
+        });
         $$('.item').on('click', function(){
-            $$('.cont').toggleClass('toggled');
-            // alert('test');
+            $$($$(this).siblings()[0]).toggleClass('toggled');
         });
     </SCRIPT>
 </body>
