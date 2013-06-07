@@ -111,10 +111,12 @@
 
     <section id="sodapop" data-transition="pop" data-pull="normal">
         <!-- HEADER and link to the aside -->
-        <header data-title="Soda Pop">
+        <header data-title="">
             <nav>
                 <a href="#features" data-router="aside" data-icon="menu"></a>
+                <img class="header_logo" src="img/soda-pop-logo.png" />
             </nav>
+            
         </header>
         <!-- Main screen | We'll probably put the news here -->
         <article id="main-article" class="active list scroll indented">
@@ -163,7 +165,7 @@
             }, 1500);
             setTimeout(function(){
                 $$('.header_logo').addClass('animated lightSpeedIn');
-            }, 3000);
+            }, 2000);
         });
         $$('.item').on('click', function(){
             $$($$(this).siblings()[0]).toggleClass('toggled');
