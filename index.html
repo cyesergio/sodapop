@@ -181,6 +181,9 @@
             setTimeout(function(){
                 $$('.header_logo').addClass('animated lightSpeedIn');
             }, 2000);
+            setTimeout(function(){
+                $$('#splashscreen').remove();
+            },2500);
         });
         $$('.item').on('click', function(){
             $$($$(this).siblings()[0]).toggleClass('toggled');
